@@ -47,6 +47,31 @@ $("#myDay").text(today.format("MMM Do, YYYY"));
 // Build restart quiz button
 // Build Exit Quiz Function 
 
+
+function startQuiz () {
+
+}
+
+function checkAnswer () {
+  
+}
+
+function onNextBtnClick () {
+
+}
+
+function storeInfo () {
+
+}
+
+function exitQ () {
+  
+}
+
+function restartQ () {
+
+}
+
 //Event Listeners
 
 startQuizBtn.addEventListener("click", startQuiz);
