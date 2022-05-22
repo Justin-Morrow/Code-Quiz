@@ -2,8 +2,27 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.buttonstyle {
-    display:flex;
-    align-items: right;
-    justify-content: right;
+button {
+    cursor: pointer;
+}
+
+input {
+    cursor: pointer;
+}
+
+#info {
+    display: none;
+}
+
+#right-or-wrong {
+    display: none;
+}
+
+#quiz {
+    display: none;
+}
+
+#next {
+    display: none;
+    cursor: pointer;
 }
