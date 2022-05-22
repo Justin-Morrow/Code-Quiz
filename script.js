@@ -29,6 +29,9 @@ var totalTime = 120;
 var interval;
 var timeLeftEl = document.getElementById("time-left");
 
+//TODO: create an array of objects that has three properties `questions:string`, `answers:array`, `rightAnwers:number`
+var questions = [];
+
 // 1) Click Start 
 // // Start the Quiz which begins the timer
 // Write Questions and answers
