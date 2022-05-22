@@ -1,0 +1,9 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.buttonstyle {
+    display:flex;
+    align-items: right;
+    justify-content: right;
+}
