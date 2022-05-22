@@ -1,7 +1,6 @@
 var introEl = document.getElementById("intro");
 var timeEl = document.getElementById("time");
 var quizEl = document.getElementById("quiz");
-var timeLeftEl = document.getElementById("time-left");
 var answerEl = document.getElementById("answers");
 var infoEl = document.getElementById("info");
 var initalEl = document.getElementById("initals");
@@ -26,7 +25,9 @@ var time = moment().format("hh:mm:ss");
 var today = moment();
 $("#myDay").text(today.format("MMM Do, YYYY"));
 
-
+var totalTime = 120;
+var interval;
+var timeLeftEl = document.getElementById("time-left");
 
 // 1) Click Start 
 // // Start the Quiz which begins the timer
@@ -48,9 +49,43 @@ $("#myDay").text(today.format("MMM Do, YYYY"));
 // Build Exit Quiz Function 
 
 
-function startQuiz () {
+function startQuiz (event) {
+  event.preventDefault();
+  // start timer function
+  startTimer(); 
+
+// hide the intro card
+  introEl.style.display="none";
+
+  // show the section
+  quizEl.style.display="block";
+
+  // display questions
+  displayQuestions ();
 
 }
+
+function startTimer () {
+  interval = setInterval(() => {
+  // totalTime = 120;
+  totalTime--;
+  if(totalTime <= 0 ){
+    totalTime= 120;
+    clearInterval(interval);
+    quizEl.style.display="none";
+    infoEl.style.display="block";
+  }
+  timeLeftEl.textContent=totalTime;
+  },1000)
+
+
+}
+
+function displayQuestions () {
+  // start timer function 
+  
+}
+
 
 function checkAnswer () {
   
@@ -65,7 +100,7 @@ function storeInfo () {
 }
 
 function exitQ () {
-  
+
 }
 
 function restartQ () {
