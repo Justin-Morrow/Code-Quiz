@@ -30,7 +30,54 @@ var interval;
 var timeLeftEl = document.getElementById("time-left");
 
 //TODO: create an array of objects that has three properties `questions:string`, `answers:array`, `rightAnwers:number`
-var questions = [];
+var questions = [
+  {
+    question: "Arrays in Javascript can be used to store _______.",
+    answer: [
+      "Numbers and Strings",
+      "Other Arrays",
+      "Booleans",
+      "All of the Above"
+    ],
+    rightAnswer: "All of the Above"
+  },
+  {
+    question: "The condition in an if I else statement is enclosed within _______.",
+    answer: [
+      "Quotes",
+      "Curly Brackets",
+      "Parenthesis",
+      "Square Brackets"
+    ],
+    rightAnswer: "Parenthesis"
+
+  },
+  {
+    question: "A very useful tool used during development and debugging for printing content to the debugger is _______.",
+    answer: [
+      "Javascript",
+      "Terminal/Bash",
+      "For Loops",
+      "Console.log"
+
+    ],
+    rightAnswer: "Console.log"
+
+  },
+  {
+    question: "Commonly used data types DO NOT include:",
+    answer: [
+      "Strings",
+      "Booleans",
+      "Alerts",
+      "Numbers"
+
+    ],
+    rightAnswer: "Alerts"
+  }
+];
+
+
 
 // 1) Click Start 
 // // Start the Quiz which begins the timer
