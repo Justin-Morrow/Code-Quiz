@@ -141,8 +141,15 @@ function displayQuestions () {
 }
 
 
-function checkAnswer () {
+function checkAnswer (event) {
+  event.preventDefault();
+  //create a variable to fetch the data of the answer that the user selects
+  var textAnswer = event.target.innerText;
+  //compare if the answer selected by the user(textanswer) === right answer
+  if(textAnswer === questions.currentQuestion.rightAnswer)
+  // if condition is true the display right on the browser
   
+
 }
 
 function onNextBtnClick () {
