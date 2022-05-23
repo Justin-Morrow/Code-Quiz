@@ -13,6 +13,7 @@ var saveNameBtn = document.getElementById("name");
 var startQuizBtn = document.getElementById("start-quiz");
 
 var questionTitle = document.getElementById("question");
+var currentQuestion = 0;
 
 var answer1 = document.getElementById("answers-1");
 var answer2 = document.getElementById("answers-2");
@@ -132,8 +133,11 @@ function startTimer () {
 }
 
 function displayQuestions () {
-  // start timer function 
-  
+  questionTitle.textContent = questions[currentQuestion].question;
+  answer1.textContent = questions[currentQuestion].answer[0];
+  answer2.textContent = questions[currentQuestion].answer[1];
+  answer3.textContent = questions[currentQuestion].answer[2]
+  answer4.textContent = questions[currentQuestion].answer[3];
 }
 
 
