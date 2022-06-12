@@ -51,7 +51,6 @@ var questions = [
       "Square Brackets"
     ],
     rightAnswer: "Parenthesis"
-
   },
   {
     question: "A very useful tool used during development and debugging for printing content to the debugger is _______.",
@@ -60,10 +59,8 @@ var questions = [
       "Terminal/Bash",
       "For Loops",
       "Console.log"
-
     ],
     rightAnswer: "Console.log"
-
   },
   {
     question: "Commonly used data types DO NOT include:",
@@ -72,13 +69,10 @@ var questions = [
       "Booleans",
       "Alerts",
       "Numbers"
-
     ],
     rightAnswer: "Alerts"
   }
 ];
-
-
 
 // 1) Click Start 
 // // Start the Quiz which begins the timer
@@ -90,6 +84,7 @@ var questions = [
 //update quiz score 
 
 // 3) Go to next question 
+//show the next question btn
 
 // 4) Finish quiz
 // Log score
@@ -97,8 +92,7 @@ var questions = [
 
 // 5) given option to play again or exit
 // Build restart quiz button
-// Build Exit Quiz Function 
-
+// Build exit quiz function 
 
 function startQuiz (event) {
   event.preventDefault();
@@ -121,7 +115,7 @@ function startTimer () {
   // totalTime = 120;
   totalTime--;
   if(totalTime <= 0 ){
-    totalTime= 120;
+    totalTime = 120;
     clearInterval(interval);
     quizEl.style.display="none";
     infoEl.style.display="block";
@@ -129,28 +123,35 @@ function startTimer () {
   timeLeftEl.textContent=totalTime;
   },1000)
 
+};
 
-}
 
 function displayQuestions () {
   questionTitle.textContent = questions[currentQuestion].question;
   answer1.textContent = questions[currentQuestion].answer[0];
   answer2.textContent = questions[currentQuestion].answer[1];
-  answer3.textContent = questions[currentQuestion].answer[2]
+  answer3.textContent = questions[currentQuestion].answer[2];
   answer4.textContent = questions[currentQuestion].answer[3];
 }
 
 
-function checkAnswer (event) {
+function checkAnswer(event) {
   event.preventDefault();
   //create a variable to fetch the data of the answer that the user selects
   var textAnswer = event.target.innerText;
+  console.log(textAnswer);
   //compare if the answer selected by the user(textanswer) === right answer
-  if(textAnswer === questions.currentQuestion.rightAnswer)
+  if(textAnswer === questions[currentQuestion].rightAnswer) {
+    console.log(questions[currentQuestion].rightAnswer);
+    rightOrWrongEl.textContent = "Right";
+  }
   // if condition is true the display right on the browser
-  
+  else {
+    rightOrWrongEl.textContent = "Wrong";    
+  }
+    rightOrWrongEl.style.display = "block";
+};
 
-}
 
 function onNextBtnClick () {
 
