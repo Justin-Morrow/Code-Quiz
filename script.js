@@ -14,6 +14,7 @@ var startQuizBtn = document.getElementById("start-quiz");
 
 var questionTitle = document.getElementById("question");
 var currentQuestion = 0;
+var score = 0;
 
 var answer1 = document.getElementById("answers-1");
 var answer2 = document.getElementById("answers-2");
@@ -94,7 +95,7 @@ var questions = [
 // Build restart quiz button
 // Build exit quiz function 
 
-function startQuiz (event) {
+function startQuiz(event) {
   event.preventDefault();
   // start timer function
   startTimer(); 
@@ -106,11 +107,11 @@ function startQuiz (event) {
   quizEl.style.display="block";
 
   // display questions
-  displayQuestions ();
+  displayQuestions();
 
 }
 
-function startTimer () {
+function startTimer() {
   interval = setInterval(() => {
   // totalTime = 120;
   totalTime--;
@@ -126,7 +127,7 @@ function startTimer () {
 };
 
 
-function displayQuestions () {
+function displayQuestions() {
   questionTitle.textContent = questions[currentQuestion].question;
   answer1.textContent = questions[currentQuestion].answer[0];
   answer2.textContent = questions[currentQuestion].answer[1];
@@ -134,38 +135,70 @@ function displayQuestions () {
   answer4.textContent = questions[currentQuestion].answer[3];
 }
 
-
 function checkAnswer(event) {
   event.preventDefault();
   //create a variable to fetch the data of the answer that the user selects
   var textAnswer = event.target.innerText;
   console.log(textAnswer);
+  console.log("my text answer");
+  rightOrWrongEl.style.display = "block";
   //compare if the answer selected by the user(textanswer) === right answer
   if(textAnswer === questions[currentQuestion].rightAnswer) {
     console.log(questions[currentQuestion].rightAnswer);
+    console.log("passing my if conditional");
     rightOrWrongEl.textContent = "Right";
+    score++;
   }
   // if condition is true the display right on the browser
   else {
-    rightOrWrongEl.textContent = "Wrong";    
+    rightOrWrongEl.textContent = "Wrong";
+    totalTime -=10;    
   }
     rightOrWrongEl.style.display = "block";
+    nextQuestBtn.style.display = "block";
 };
+function onNextBtnClick() {
+  //check remaining questions are left
+  //if no questions left 
+  if(currentQuestion = questions.length - 1) {
+  //reset timer 
+  totalTime = 120;
+  clearInterval(interval);
+  //hide display questions
+  quizEl.style.display = "none";
+  //show the landing card
+  // introEl.style.display = "block";
+  //call the store info function - display the store info card
+  infoEl.style.display = "block";
+  return;
 
-
-function onNextBtnClick () {
+  }
+  //hide the next button 
+  nextQuestBtn.style.display = "none";
+  //hide the right or wrong text 
+  rightOrWrongEl.style.display = "none";
+  //if questions left increase questions to the next questions
+  increamentCurrentQ();
+  //Display the next current question
+  displayQuestions();
+  //
 
 }
 
-function storeInfo () {
+function increamentCurrentQ() {
+  currentQuestion++;
+}
+
+function storeInfo() {
 
 }
 
-function exitQ () {
-
+function exitQ() {
+  window.location.href="topScores.html";
 }
 
-function restartQ () {
+function restartQ() {
+  window.location.href="index.html";
 
 }
 
