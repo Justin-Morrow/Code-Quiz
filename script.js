@@ -191,7 +191,9 @@ function onNextBtnClick() {
 
 function storeInfo(event) {
   event.preventDefault(); 
+  console.log("into my store function")
   var inputName = document.getElementById("initials").value;
+  console.log("this is my input value: ", inputName);
   //create username variable to create username score
   var userScore = {
     userName: inputName,
@@ -199,11 +201,11 @@ function storeInfo(event) {
   }
   //create high score variable that gets the data from the browswer
   //we use JSON.parse when getting the data from the browser 
-  var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+  var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
   //push our userScore data into the highscores variable
-  highScores.push(userScore);
+  highscores.push(userScore);
   //we use JSON.stringify when gathering data from local storage 
-  localStorage.setItem("highScores", JSON.stringify(highScores));
+  localStorage.setItem("highscores", JSON.stringify(highscores));
   console.log("passing scores to top scores page");
   window.location.href = "topscores.html";
 }
