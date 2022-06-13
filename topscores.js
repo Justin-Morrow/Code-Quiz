@@ -7,14 +7,14 @@ function loadPage() {
     
     //for loop to add scores
     for(let i=0; i < highScores.length; i++) {
-        var li = document.createElement("li");
+        var div = document.createElement("div");
         var h4 = document.createElement("h4");
         var h5 = document.createElement("h5");
         h4.innerText = "Name: " + highScores[i].userName;
         h5.innerText = "Score: " + highScores[i].score; 
 
         //add the list of data under the myStudents box
-        myScores.appendChild(li).appendChild(h4).appendChild(h5);
+        myScores.appendChild(div).appendChild(h4).appendChild(h5);
     }
 }
 
