@@ -5,7 +5,7 @@ var answerEl = document.getElementById("answers");
 var infoEl = document.getElementById("info");
 var initalEl = document.getElementById("initals");
 var rightOrWrongEl = document.getElementById("right-or-wrong");
-var inputName = document.getElementById("initials")
+
 
 var restartBtn = document.getElementById("restart");
 var exitBtn = document.getElementById("exit");
@@ -191,6 +191,7 @@ function onNextBtnClick() {
 
 function storeInfo(event) {
   event.preventDefault(); 
+  var inputName = document.getElementById("initials").value;
   //create username variable to create username score
   var userScore = {
     userName: inputName,

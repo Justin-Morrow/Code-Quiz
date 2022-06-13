@@ -1,9 +1,9 @@
 var highscores = [];
-var MyScores = document.getElementById("list-of-scores");
+var myScores = document.getElementById("list-of-scores");
 
 function loadPage() {
     console.log("page has loaded")
-    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
     
     //for loop to add scores
     for(let i=0; i < highScores.length; i++) {
@@ -14,7 +14,7 @@ function loadPage() {
         h5.innerText = "Score: " + highScores[i].score; 
 
         //add the list of data under the myStudents box
-        MyScores.appendChild(li).appendChild(h4).appendChild(h5);
+        myScores.appendChild(li).appendChild(h4).appendChild(h5);
     }
 }
 
