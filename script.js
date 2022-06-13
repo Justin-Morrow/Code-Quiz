@@ -5,6 +5,7 @@ var answerEl = document.getElementById("answers");
 var infoEl = document.getElementById("info");
 var initalEl = document.getElementById("initals");
 var rightOrWrongEl = document.getElementById("right-or-wrong");
+var inputName = document.getElementById("initials")
 
 var restartBtn = document.getElementById("restart");
 var exitBtn = document.getElementById("exit");
@@ -157,17 +158,20 @@ function checkAnswer(event) {
     rightOrWrongEl.style.display = "block";
     nextQuestBtn.style.display = "block";
 };
+
+function increamentCurrentQ() {
+  currentQuestion++;
+}
+
 function onNextBtnClick() {
   //check remaining questions are left
   //if no questions left 
-  if(currentQuestion = questions.length - 1) {
+  if(currentQuestion === questions.length - 1) {
   //reset timer 
   totalTime = 120;
   clearInterval(interval);
   //hide display questions
   quizEl.style.display = "none";
-  //show the landing card
-  // introEl.style.display = "block";
   //call the store info function - display the store info card
   infoEl.style.display = "block";
   return;
@@ -185,12 +189,22 @@ function onNextBtnClick() {
 
 }
 
-function increamentCurrentQ() {
-  currentQuestion++;
-}
-
-function storeInfo() {
-
+function storeInfo(event) {
+  event.preventDefault(); 
+  //create username variable to create username score
+  var userScore = {
+    userName: inputName,
+    score: score, 
+  }
+  //create high score variable that gets the data from the browswer
+  //we use JSON.parse when getting the data from the browser 
+  var highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+  //push our userScore data into the highscores variable
+  highScores.push(userScore);
+  //we use JSON.stringify when gathering data from local storage 
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+  console.log("passing scores to top scores page");
+  window.location.href = "topscores.html";
 }
 
 function exitQ() {
