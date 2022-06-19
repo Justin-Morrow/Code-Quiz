@@ -1,5 +1,5 @@
 # Code-Quiz
-![Thumbnail](/Code-Quiz/assets/codequiz.png)(https://justin-morrow.github.io/Code-Quiz/)
+![Thumbnail](codequiz.png)(https://justin-morrow.github.io/Code-Quiz/)
 
 ## Table of Contents
 
